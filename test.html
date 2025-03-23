@@ -1,0 +1,2804 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সাফল্য একাডেমি - BCS পরীক্ষা প্রস্তুতি</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .navbar {
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+        }
+        
+        .navbar .nav-link {
+            color: #333;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+        
+        .dropdown-toggle::after {
+            vertical-align: middle;
+        }
+        
+        .login-btn {
+            background-color: #f1f1f1;
+            border-radius: 25px;
+            padding: 6px 20px;
+            font-weight: 500;
+        }
+        
+        .hero-section {
+            background: linear-gradient(90deg, #1a237e 0%, #4a148c 50%, #0d47a1 100%);
+            color: white;
+            padding: 50px 0;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-text p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .btn-outline-light {
+            border-radius: 30px;
+            padding: 8px 25px;
+            font-weight: 500;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .hero-image {
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Carousel indicators styling */
+        .carousel-indicators-custom {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        .course-section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin: 35px 0 25px;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .course-section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #3f51b5;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        .category-card {
+            background-color: #a7d0ff;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-card:hover {
+            background-color: #88c0ff;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-icon {
+            background-color: white;
+            border-radius: 10px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        
+        .category-title {
+            font-weight: 600;
+            color: #1a237e;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+        
+        /* Modal styles to match your image */
+        .modal-dialog {
+            max-width: 500px;
+        }
+        
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-body {
+            padding: 0;
+            background: #3f51b5;
+            color: white;
+        }
+        
+        .promo-modal {
+            text-align: center;
+            padding: 20px;
+            background: #3f51b5;
+            color: white;
+            position: relative;
+        }
+        
+        .modal-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff3547;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .promo-modal h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 15px 0;
+            color: white;
+        }
+        
+        .promo-modal p {
+            font-size: 1.1rem;
+            color: white;
+        }
+        
+        .feature-list {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        
+        .feature-list p {
+            margin: 0;
+        }
+        
+        .check-mark {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            width: 20px;
+            height: 20px;
+            line-height: 16px;
+            border-radius: 3px;
+            text-align: center;
+            margin: 0 5px;
+        }
+        
+        .action-btn {
+            background-color: white;
+            color: #3f51b5;
+            border-radius: 25px;
+            padding: 10px 25px;
+            font-weight: 500;
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .action-btn:hover {
+            background-color: #f5f5f5;
+            color: #303f9f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                margin-top: 30px;
+            }
+            
+            .category-title {
+                font-size: 1.1rem;
+            }
+            
+            .category-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .category-icon img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.safollo.ac/logo/logo.png" alt="সাফল্য একাডেমি">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">হোম</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown">
+                            ফ্রি কোর্স
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">কোর্স ১</a></li>
+                            <li><a class="dropdown-item" href="#">কোর্স ২</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown">
+                            প্রিমিয়াম কোর্স
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">প্রিমিয়াম ১</a></li>
+                            <li><a class="dropdown-item" href="#">প্রিমিয়াম ২</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">গাইড লাইন</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">নোটিশ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">জব সার্কুলার</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">আমাদের সম্পর্কে</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn login-btn">
+                    <i class="bi bi-person"></i> সাইন ইন
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero-section">
+            <div class="row align-items-center px-3 px-md-5">
+                <div class="col-lg-6 hero-text">
+                    <h1>লক্ষ্য আপনার,<br>অঙ্গীকার আমাদের!</h1>
+                    <p>নতুন বছর, নতুন স্বপ্ন, নতুন সম্ভাবনা! সাফল্য একাডেমি নিয়ে এসেছে সরকারি চাকরির প্রস্তুতির জন্য গুণগত মানসম্পন্ন কোর্স। BCS, প্রাইমারি, NTRCA এবং অন্যান্য সরকারি চাকরির জন্য বিশেষভাবে ডিজাইন করা কোর্সগুলো বিসিএস ক্যাডার স্যারদের সরাসরি তত্ত্বাবধানে পরিচালিত। জ্ঞান ও অভিজ্ঞতার সমন্বয়ে, আপনার স্বপ্ন পূরণের পথে আমরা সর্বদা আপনার পাশে আছি! চলুন, নতুন বছরে একসাথে সাফল্যের যাত্রা শুরু করি! আপনার সাফল্যই আমাদের প্রতিজ্ঞা!</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-outline-light">Our Course</a>
+                        <a href="#" class="btn btn-outline-light">Download App</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image">
+                    <!-- Single hero image with custom carousel indicators -->
+                    <img id="heroImage" src="https://saflloacademy.sgp1.digitaloceanspaces.com/advertisements/OI9jxJe42TIKDZdDSqZCNNZylpgd76Qa.jpeg" class="d-block w-100" alt="47th BCS 100 Days Exam Batch-02">
+                    
+                    <!-- Custom carousel indicators -->
+                    <div class="carousel-indicators-custom mt-3">
+                        <div class="carousel-dot active" data-index="0"></div>
+                        <div class="carousel-dot" data-index="1"></div>
+                        <div class="carousel-dot" data-index="2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Course Category Section -->
+<section class="category-section">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-header">
+            <h2 class="section-title">কোর্স ক্যাটাগরি</h2>
+        </div>
+        
+        <!-- Category Cards -->
+        <div class="category-container">
+            <!-- Category 1: Free Course -->
+            <div class="category-card-wrapper">
+                <a href="/course-by-category/fri-kors-1?parent=ফ্রি কোর্স" class="category-link">
+                    <div class="category-card">
+                        <div class="category-image-container">
+                            <img class="category-image" src="https://saflloacademy.sgp1.digitaloceanspaces.com/coursecategories/7esnX61ieKUb9Fe5akoMyR9I61vQECH4.jpg" alt="ফ্রি কোর্স">
+                        </div>
+                        <div class="category-name-container">
+                            <p class="category-name">ফ্রি কোর্স</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Category 2: BCS Preli -->
+            <div class="category-card-wrapper">
+                <a href="/course-by-category/bisies-prili?parent=বিসিএস প্রিলি" class="category-link">
+                    <div class="category-card">
+                        <div class="category-image-container">
+                            <img class="category-image" src="https://saflloacademy.sgp1.digitaloceanspaces.com/coursecategories/lI1SlifVCHoDiWhFFzIDCW25gKOQCPa4.jpg" alt="বিসিএস প্রিলি">
+                        </div>
+                        <div class="category-name-container">
+                            <p class="category-name">বিসিএস প্রিলি</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Category 3: Teacher Registration -->
+            <div class="category-card-wrapper">
+                <a href="/course-by-category/sikshk-nibndhn?parent=শিক্ষক নিবন্ধন" class="category-link">
+                    <div class="category-card">
+                        <div class="category-image-container">
+                            <img class="category-image" src="https://saflloacademy.sgp1.digitaloceanspaces.com/coursecategories/TgdRyUpC29nU5RLqtoctpHCNnwrfVkeu.webp" alt="শিক্ষক নিবন্ধন">
+                        </div>
+                        <div class="category-name-container">
+                            <p class="category-name">শিক্ষক নিবন্ধন</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Category 4: Primary Recruitment -->
+            <div class="category-card-wrapper">
+                <a href="/course-by-category/praimari-niyog?parent=প্রাইমারি নিয়োগ" class="category-link">
+                    <div class="category-card">
+                        <div class="category-image-container">
+                            <img class="category-image" src="https://saflloacademy.sgp1.digitaloceanspaces.com/coursecategories/4Q6gHpqFTyBKjkw7WUafPBJDGcnkwSpV.webp" alt="প্রাইমারি নিয়োগ">
+                        </div>
+                        <div class="category-name-container">
+                            <p class="category-name">প্রাইমারি নিয়োগ</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CSS for Course Category Section -->
+<style>
+    /* Section Styling */
+    .category-section {
+        padding: 1rem 1rem 2rem;
+    }
+    
+    @media (min-width: 768px) {
+        .category-section {
+            padding: 2rem 0.5rem;
+        }
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Section Title */
+    .section-header {
+        padding-bottom: 1rem;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #231F54;
+        text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+        .section-title {
+            font-size: 36px;
+        }
+    }
+    
+    /* Category Container */
+    .category-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.75rem;
+        padding: 0 0.5rem;
+    }
+    
+    @media (min-width: 768px) {
+        .category-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.75rem;
+            padding: 0 0.5rem;
+        }
+    }
+    
+    /* Category Card */
+    .category-card {
+        background-color: #92CEFF;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #2189DE;
+        color: #231F54;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .category-card:hover {
+        background-color: #2189DE;
+        color: white;
+    }
+    
+    @media (min-width: 768px) {
+        .category-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+    
+    /* Category Image */
+    .category-image-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .category-image {
+        height: 70px;
+        border-radius: 0.75rem;
+    }
+    
+    /* Category Name */
+    .category-name-container {
+        padding-top: 0.5rem;
+    }
+    
+    @media (min-width: 768px) {
+        .category-name-container {
+            padding-top: 0;
+        }
+    }
+    
+    .category-name {
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+        .category-name {
+            font-size: 18px;
+            text-align: left;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .category-name {
+            font-size: 24px;
+        }
+    }
+    
+    /* Link Styling */
+    .category-link {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+
+   <!-- Course Carousel Section with Professional Design -->
+<div class="container mb-5">
+    <!-- Section Title -->
+    <h2 class="section-title text-center mb-2">চলমান কোর্স সমূহ</h2>
+    <p class="text-center text-muted small mb-4">বর্তমান সময়ের জন্য সকল সরকারি চাকরির প্রয়োজনীয় কোর্স!</p>
+    
+    <!-- Swiper Carousel with Enhanced Controls -->
+    <div class="swiper-container">
+        <!-- Main Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Course Card 1 -->
+                <div class="swiper-slide">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/courses/Tqh5vfyenkUWyp5kQyAt3HJ4sIHDQFxS.webp" alt="১১-২০তম গ্রেড জব প্রিপারেশন লাইভ ব্যাচ">
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">১১-২০তম গ্রেড জব প্রিপারেশন লাইভ ব্যাচ</h5>
+                            <div class="course-features">
+                                <div class="feature-grid">
+                                    <div class="feature-item">
+                                        <p>🎥 ৬৭ টি লাইভ ক্লাস</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>📒৬৭ টি লেকচারশিট</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>📝 ৭৫টি এক্সাম</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>✅আনলিমিটেড এক্সাম প্র্যাকটিস</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-action">
+                                <a href="#" class="view-details-btn">
+                                    <p>বিস্তারিত দেখুন</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="m12.192 16.827l2.406-4.327H2.5v-1h12.098l-2.406-4.327L19.788 12z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 2 -->
+                <div class="swiper-slide">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/courses/gvOhlvAjq7z0mDyNB5xmpIp1H0FmjYkZ.webp" alt="প্রাইমারি শিক্ষক নিয়োগ প্রিমিয়াম ব্যাচ -০২">
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">প্রাইমারি শিক্ষক নিয়োগ প্রিমিয়াম ব্যাচ -০২</h5>
+                            <div class="course-features">
+                                <div class="feature-grid">
+                                    <div class="feature-item">
+                                        <p>🎥 ৭০ টি লাইভ ক্লাস</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>✅১০২ টি লাইভ এক্সাম</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>🎥 ৭০ টি লেকচারশিট</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>🔥বিসিএস ক্যাডার স্যারদের সাজেশন</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-action">
+                                <a href="#" class="view-details-btn">
+                                    <p>বিস্তারিত দেখুন</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="m12.192 16.827l2.406-4.327H2.5v-1h12.098l-2.406-4.327L19.788 12z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 3 -->
+                <div class="swiper-slide">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/courses/NfY7XmYA27IM79Hx6d1k3zgFFSOUZOfE.webp" alt="47th BCS 100 Days Exam Batch-02">
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">47th BCS 100 Days Exam Batch-02</h5>
+                            <div class="course-features">
+                                <div class="feature-grid">
+                                    <div class="feature-item">
+                                        <p>✅টপিক অনুযায়ী ৮০টি এক্সাম</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>✅ ১৩টি সাপ্তাহিক এক্সাম</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>✅পুর্ণাঙ্গ মডেল টেস্ট ৭টি</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>✅ আনলিমিটেড এক্সাম প্রাকটিস</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-action">
+                                <a href="#" class="view-details-btn">
+                                    <p>বিস্তারিত দেখুন</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="m12.192 16.827l2.406-4.327H2.5v-1h12.098l-2.406-4.327L19.788 12z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 4 -->
+                <div class="swiper-slide">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/courses/20KzYNC6wsYZrw09JyfnoFRp99JQCBi7.webp" alt="৪৮তম বিসিএস ফাউন্ডেশন কোর্স">
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">৪৮তম বিসিএস ফাউন্ডেশন কোর্স</h5>
+                            <div class="course-features">
+                                <div class="feature-grid">
+                                    <div class="feature-item">
+                                        <p>১৬০টি লাইভ ক্লাস</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>১৬০টি লেকচারশিট</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>২৪০টি লাইভ এক্সাম</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>আনলিমিটেড এক্সাম প্রাক্টিস</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-action">
+                                <a href="#" class="view-details-btn">
+                                    <p>বিস্তারিত দেখুন</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="m12.192 16.827l2.406-4.327H2.5v-1h12.098l-2.406-4.327L19.788 12z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional course cards -->
+                <div class="swiper-slide">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/courses/FNnR4WKbBTwoXso6jVCffRNeTcR0m7U6.jpg" alt="৪৭তম বিসিএস চ্যালেঞ্জার লাইভ ব্যাচ">
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">"৪৭তম বিসিএস চ্যালেঞ্জার লাইভ ব্যাচ"</h5>
+                            <div class="course-features">
+                                <div class="feature-grid">
+                                    <div class="feature-item">
+                                        <p>🎥 ১০০ টি লাইভ ক্লাস</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>🗒️ ১০০টি লেকচারশিট</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>📝 ১২৫ টি লাইভ এক্সাম</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>✅ এক্সাম প্র্যাকটিস</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-action">
+                                <a href="#" class="view-details-btn">
+                                    <p>বিস্তারিত দেখুন</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="m12.192 16.827l2.406-4.327H2.5v-1h12.098l-2.406-4.327L19.788 12z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/courses/PoOKrxogFE4p2JrJwvJn4wAjiZL1dcxo.webp" alt="স্পেশাল বিজ্ঞান+গণিত কম্বো কোর্স">
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">স্পেশাল বিজ্ঞান+গণিত কম্বো কোর্স (ব্যাচ-০৩)</h5>
+                            <div class="course-features">
+                                <div class="feature-grid">
+                                    <div class="feature-item">
+                                        <p>📹 ৬৫টি লাইভ ক্লাস</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>🗒️ ৬৫টি লেকচারশিট</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>✍🏻 ৯২টি লাইভ এক্সামস</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <p>📌 আনলিমিটেড এক্সাম প্র্যাকটিস</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-action">
+                                <a href="#" class="view-details-btn">
+                                    <p>বিস্তারিত দেখুন</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="m12.192 16.827l2.406-4.327H2.5v-1h12.098l-2.406-4.327L19.788 12z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows - Customized -->
+            <div class="swiper-button-prev custom-nav-btn"></div>
+            <div class="swiper-button-next custom-nav-btn"></div>
+        </div>
+        
+        <!-- Custom Pagination Container with consistent height -->
+        <div class="pagination-container">
+            <!-- Pagination Dots (Circles) - Better Styling -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    
+    <!-- See All Button -->
+    <div class="text-center mt-4">
+        <a href="#" class="see-all-btn">সবগুলো দেখুন</a>
+    </div>
+</div>
+
+<!-- CSS Styles -->
+<style>
+    /* Section title */
+    .section-title {
+        font-size: 24px;
+        color: #231F54;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    
+    @media (min-width: 768px) {
+        .section-title {
+            font-size: 36px;
+        }
+    }
+    
+    /* Course card styles */
+    .course-card {
+        width: 100%;
+        background-color: white;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(128, 128, 128, 0.4);
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-color: rgba(8, 144, 255, 0.3);
+    }
+    
+    .course-image {
+        width: 100%;
+        height: 190px;
+        padding: 8px;
+    }
+    
+    .course-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        border-radius: 6px;
+    }
+    
+    @media (min-width: 768px) {
+        .course-image {
+            height: 180px;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .course-image {
+            height: 200px;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        .course-image {
+            height: 220px;
+        }
+    }
+    
+    .course-content {
+        padding: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    
+    @media (min-width: 768px) {
+        .course-content {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+    
+    .course-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        padding: 0 8px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        min-height: 40px;
+    }
+    
+    @media (min-width: 768px) {
+        .course-title {
+            font-size: 22px;
+            padding: 0;
+        }
+    }
+    
+    .course-features {
+        padding: 12px 0;
+    }
+    
+    .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 0 8px;
+    }
+    
+    @media (min-width: 768px) {
+        .feature-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 0;
+        }
+    }
+    
+    .feature-item {
+        background-color: #F3F3F3;
+        padding: 8px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .feature-item p {
+        font-size: 12px;
+        margin: 0;
+    }
+    
+    .course-action {
+        padding: 8px 8px 0 8px;
+        margin-top: auto;
+        margin-bottom: 8px;
+    }
+    
+    @media (min-width: 768px) {
+        .course-action {
+            padding: 8px 0 0 0;
+        }
+    }
+    
+    .view-details-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #EBEBEB;
+        width: 100%;
+        padding: 8px 0;
+        border-radius: 6px;
+        text-decoration: none;
+        color: black;
+        transition: all 0.3s ease;
+    }
+    
+    .view-details-btn:hover {
+        background-color: #0890FF;
+        color: white;
+    }
+    
+    .view-details-btn p {
+        font-size: 16px;
+        margin: 0;
+    }
+    
+    @media (min-width: 768px) {
+        .view-details-btn {
+            padding: 12px 0;
+        }
+        
+        .view-details-btn p {
+            font-size: 20px;
+        }
+    }
+    
+    /* Swiper styles */
+    .swiper-container {
+        position: relative;
+        padding: 0 8px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    
+    .swiper {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 15px; /* Reduced padding to make room for pagination container */
+    }
+    
+    .swiper-slide {
+        height: auto;
+    }
+    
+    /* Custom pagination container with fixed height */
+    .pagination-container {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    /* Enhanced pagination dots (circles) */
+    .swiper-pagination {
+        position: static; /* Override Swiper's default absolute positioning */
+        width: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        border-radius: 50%;
+        background: #bbb;
+        opacity: 0.5;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #0890FF;
+        transform: scale(1.2);
+        box-shadow: 0 0 5px rgba(8, 144, 255, 0.5);
+    }
+    
+    /* Enhanced navigation arrows */
+    .custom-nav-btn {
+        width: 40px !important;
+        height: 40px !important;
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        color: #0890FF !important;
+        border-radius: 50% !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
+        z-index: 10 !important;
+        transition: all 0.3s !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .custom-nav-btn:after {
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+    
+    .swiper-button-prev {
+        left: -5px !important;
+    }
+    
+    .swiper-button-next {
+        right: -5px !important;
+    }
+    
+    .custom-nav-btn:hover {
+        background-color: #0890FF !important;
+        color: white !important;
+        transform: scale(1.1) !important;
+    }
+    
+    /* See all button */
+    .see-all-btn {
+        display: inline-block;
+        background-color: #0890FF;
+        color: white;
+        padding: 10px 28px;
+        border-radius: 24px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(8, 144, 255, 0.3);
+    }
+    
+    .see-all-btn:hover {
+        background-color: #0077e6;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(8, 144, 255, 0.4);
+        color: white;
+    }
+    
+    @media (min-width: 768px) {
+        .see-all-btn {
+            font-size: 16px;
+        }
+    }
+    
+    /* Hide navigation arrows on mobile */
+    @media (max-width: 768px) {
+        .custom-nav-btn {
+            display: none !important;
+        }
+    }
+</style>
+
+<!-- JavaScript for Swiper -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            grabCursor: true,
+            loop: false,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: false,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '"></span>';
+                },
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+            },
+            on: {
+                init: function () {
+                    setTimeout(function() {
+                        // Force pagination to update after initialization
+                        document.querySelector('.swiper-pagination').style.opacity = "1";
+                    }, 100);
+                },
+            }
+        });
+    });
+</script>
+
+<!-- Required Swiper JS and CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+
+
+
+
+<!-- Why Safollo Academy Section -->
+<div class="why-section py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">কেন সাফল্য একাডেমি?</h2>
+        
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <!-- Feature 1 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature1.png" alt="BCS Cadre">
+                    </div>
+                    <div class="feature-content">
+                        <p>সফল বিসিএস ক্যাডার দ্বারা পরিচালিত</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature2.png" alt="Experienced Teachers">
+                    </div>
+                    <div class="feature-content">
+                        <p>একাধিক সরকারি চাকরিপ্রাপ্ত শিক্ষকদের মাধ্যমে পাঠ দান</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature3.png" alt="Special Care">
+                    </div>
+                    <div class="feature-content">
+                        <p>প্রাইভেট গ্রুপের মাধ্যমে স্পেশাল কেয়ার</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature4.png" alt="Zoom Classes">
+                    </div>
+                    <div class="feature-content">
+                        <p>ZOOM লাইভ ক্লাস</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature5.png" alt="Recorded Lectures">
+                    </div>
+                    <div class="feature-content">
+                        <p>লাইভ ক্লাসের রেকর্ডেড লেকচার প্রদান</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature6.png" alt="Lecture Sheet">
+                    </div>
+                    <div class="feature-content">
+                        <p>পূর্ণাঙ্গ লেকচারশিট প্রদান</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 7 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature7.png" alt="Handnotes">
+                    </div>
+                    <div class="feature-content">
+                        <p>প্রয়োজনীয় হ্যান্ডনোট সরবরাহ</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 8 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature8.png" alt="MCQ Exam">
+                    </div>
+                    <div class="feature-content">
+                        <p>লাইভ MCQ এক্সাম</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 9 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature9.png" alt="Evaluation">
+                    </div>
+                    <div class="feature-content">
+                        <p>MCQ পরীক্ষার নেগেটিভ মার্কসহ মূল্যায়ন</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 10 -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://www.safollo.ac/feature/feature10.png" alt="Practice">
+                    </div>
+                    <div class="feature-content">
+                        <p>একাধিকবার প্রাকটিস ও ব্যাখ্যাসহ প্রশ্ন সমাধান</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS for Why Safollo Section -->
+<style>
+    /* Section styling */
+    .why-section {
+        background-color: #f8f9fa;
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        color: #231F54;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+    
+    @media (min-width: 768px) {
+        .section-title {
+            font-size: 36px;
+        }
+        
+        .why-section .row {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+    }
+    
+    /* Feature card styling */
+    .feature-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        padding: 20px;
+        height:60%;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-color: rgba(8, 144, 255, 0.3);
+    }
+    
+    .feature-icon {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .feature-icon img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    .feature-content {
+        flex-grow: 1;
+    }
+    
+    .feature-content p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+    }
+    
+    @media (min-width: 768px) {
+        .feature-content p {
+            font-size: 20px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+        }
+    }
+</style>
+
+
+
+<!-- Teacher Panel Section with Carousel -->
+<div class="teacher-panel-section py-5">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="pb-4 md:pb-8 px-2 md:px-0">
+            <h2 class="section-title text-center mb-2">শিক্ষক প্যানেল</h2>
+            <p class="text-center text-muted small">সাফল্য একাডেমির দেশসেরা শিক্ষকগণ</p>
+        </div>
+        
+        <!-- Teacher Carousel -->
+        <div class="px-4 md:px-0">
+            <div class="swiper teacher-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Teacher 1 -->
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/3yTjqGuTLcupTkpVkK0pjh1mRqpqRIb7.webp" alt="মোঃ রাকিব হোসেন">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">মোঃ রাকিব হোসেন</h5>
+                                <p class="teacher-designation">বিসিএস অডিট ও একাউন্টস ক্যাডার (৪০তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি <span class="see-more">See More</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Teacher 2 -->
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/6KQBbQ4Gr7fr9l6l9yrdtFeqyf7kREUE.webp" alt="মাহমুদ হাসান">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">মাহমুদ হাসান</h5>
+                                <p class="teacher-designation">বিসিএস অডিট ও একাউন্টস ক্যাডার (৪০তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি <span class="see-more">See More</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Teacher 3 -->
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/NMSlsiMYEJdz3LjluwffOKj5Bc2ya4NF.webp" alt="সোহাগ হোসেন">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">সোহাগ হোসেন</h5>
+                                <p class="teacher-designation">বিসিএস তথ্য ক্যাডার (৩৮তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি <span class="see-more">See More</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Teacher 4 -->
+                    <div class="swiper-slide">
+                        <div class="teacher-card active-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/eSa7W07As3ZnnxbfRhafRGafEhZcHez7.webp" alt="সৈকত বিশ্বাস">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">সৈকত বিশ্বাস</h5>
+                                <p class="teacher-designation">সহকারি কমিশনার-প্রশাসন, ৪৩তম বিসিএস, (কুয়েট) <span class="see-more">See More</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Teacher 5 -->
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/SIR0H8X6kkTS8jNGcAkgQmM188ugwW3t.jpg" alt="মানসূরা আক্তার মৌ">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">মানসূরা আক্তার মৌ</h5>
+                                <p class="teacher-designation">বিসিএস অডিট এন্ড একাউন্টস (৪০ তম বিসিএস), সিনিয়র শিক্ষক <span class="see-more">See More</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Teachers -->
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/4HBwbdvr2rt4UZa0GvqFnwUD71WR5Q5k.jpg" alt="সৈয়দ আমিনুল হক">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">সৈয়দ আমিনুল হক</h5>
+                                <p class="teacher-designation">বিসিএস (সাধারণ শিক্ষা) (৪৩তম বিসিএস), এমএ ইংরেজি <span class="see-more">See More</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/7UzaEn4IRD8BOGHSObnzjC11qQZETa8x.webp" alt="মোঃ আব্দুস সাত্তার">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">মোঃ আব্দুস সাত্তার</h5>
+                                <p class="teacher-designation">বিসিএস গণপূর্ত (৪৩তম বিসিএস), বিএসসি ইঞ্জিঃ (পুরকৌশল) <span class="see-more">See More</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/u3T0IDfr4uDM14XgQ37SikUsljGgNgP3.jpg" alt="মোহাম্মদ মুশফিকুজ্জোহা">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">মোহাম্মদ মুশফিকুজ্জোহা</h5>
+                                <p class="teacher-designation">বিসিএস তথ্য (৪০তম বিসিএস), বিএসসি ইন ইইই <span class="see-more">See More</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/sJXogZHhobOoJUSQ2ABbwwngUWcrgthe.jpg" alt="নাসিফ ইনসান">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">নাসিফ ইনসান</h5>
+                                <p class="teacher-designation">বিসিএস পুলিশ (৪১তম বিসিএস) BSS, MSS(DU)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="teacher-card">
+                            <div class="teacher-photo">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/QaXswxKdkRmaRMTIV3IB2DOvBhSe0rhh.jpg" alt="মোঃ রাকিব হোসেন">
+                            </div>
+                            <div class="teacher-info">
+                                <h5 class="teacher-name">মোঃ রাকিব হোসেন</h5>
+                                <p class="teacher-designation">বিসিএস তথ্য (৪৩তম বিসিএস), বিএসসি ইঞ্জিঃ (তড়িৎ কৌশল) <span class="see-more">See Less</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS for Teacher Panel Section -->
+<style>
+    /* Section styling */
+    .teacher-panel-section {
+        background-color: #f8f9fa;
+        padding: 40px 0 60px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        color: #231F54;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    
+    @media (min-width: 768px) {
+        .section-title {
+            font-size: 36px;
+        }
+    }
+    
+    /* Teacher card styling */
+    /* Remove the 'active-card' class from all cards in your HTML */
+
+/* Then modify the teacher card styling */
+.teacher-card {
+    background-color: white;
+    color: #515151;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    height: 100%;
+    transform: scale(1);
+}
+
+.teacher-card:hover {
+    background-color: #231F54;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Make sure the see-more text stays blue on hover */
+.teacher-card:hover .see-more {
+    color: #4dabff;
+}
+    
+    .teacher-photo {
+        margin-bottom: 16px;
+        background-color: #f3f3f3;
+        border-radius: 50%;
+        padding: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .teacher-photo img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    @media (min-width: 768px) {
+        .teacher-photo img {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .teacher-card {
+            padding: 24px;
+        }
+    }
+    
+    .teacher-info {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .teacher-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 0;
+        height: 30px;
+    }
+    
+    .teacher-designation {
+        font-size: 14px;
+        margin-top: 16px;
+        padding-top: 8px;
+        line-height: 1.4;
+    }
+    
+    @media (min-width: 768px) {
+        .teacher-designation {
+            font-size: 16px;
+        }
+    }
+    
+    .see-more {
+        color: #007bff;
+        cursor: pointer;
+        display: inline-block;
+        margin-left: 5px;
+    }
+    
+    .teacher-card:hover .see-more {
+        color: #4dabff;
+    }
+    
+    /* Swiper styling */
+    .swiper {
+        padding-bottom: 50px !important;
+    }
+    
+    .swiper-slide {
+        height: auto;
+    }
+    
+    /* Enhanced pagination styling */
+    .swiper-pagination {
+        position: relative;
+        bottom: 0 !important;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: #bbb;
+        opacity: 0.5;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
+    
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #231F54;
+        transform: scale(1.2);
+    }
+</style>
+
+<!-- JavaScript for Teacher Swiper -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var swiper = new Swiper(".teacher-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                1200: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                },
+            },
+        });
+        
+        // Add event listener for "See More" and "See Less" toggles
+        document.querySelectorAll('.see-more').forEach(function(element) {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.textContent === 'See More') {
+                    this.textContent = 'See Less';
+                    // Logic to show more content would go here
+                } else {
+                    this.textContent = 'See More';
+                    // Logic to show less content would go here
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Student Testimonials Section -->
+<section class="testimonials-section py-5">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="mb-5">
+            <h2 class="section-title text-center">শিক্ষার্থীদের মতামত</h2>
+        </div>
+        
+        <!-- Testimonial Swiper -->
+        <div class="testimonial-swiper-container">
+            <div class="swiper testimonial-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/testimonials/CRbYEG5WK9zSSPp4goLGY8K2rLY1dODe.png" alt="Monirul Islam">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="student-info">
+                                    <h5 class="student-name">Monirul Islam</h5>
+                                    <p class="student-batch">৪৭তম বিসিএস প্রিলি ব্যাচ ১</p>
+                                </div>
+                                <p class="testimonial-text" data-full-text="আসসালামু আলাইকুম স্যার, আমি সাফল্য একাডেমির রেগুলার ফ্রি ক্লাসগুলো দেখি অনেক টিচারকেই আমি আগে থেকেই ফলো করি সবাইকে একসাথে পাবো ভাবতেও পারিনাই। স্যার সাফল্য একাডেমিতে সকল বিসিএস ক্যাডার স্যারদের ক্লাস একসাথে পেয়ে আমি অনেক খুশি। আপনাদের অনেক ধন্যবাদ।" data-short-text="আসসালামু আলাইকুম স্যার, আমি সাফল্য একাডেমির রেগুলার ফ্রি ক্লাসগুলো দেখি অনেক টিচারকেই আমি আগে থেকেই ফলো করি সবাইকে একসাথে পাবো ভাবতেও পারিনাই। স্যার সাফল্য একাডেমিতে সকল...">
+                                    <span class="testimonial-content-text">আসসালামু আলাইকুম স্যার, আমি সাফল্য একাডেমির রেগুলার ফ্রি ক্লাসগুলো দেখি অনেক টিচারকেই আমি আগে থেকেই ফলো করি সবাইকে একসাথে পাবো ভাবতেও পারিনাই। স্যার সাফল্য একাডেমিতে সকল...</span>
+                                    <span class="see-more">See More</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/testimonials/nz0soJR3dVXuewuB5ClQtljaQD9iWf7p.png" alt="Faria Jahan">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="student-info">
+                                    <h5 class="student-name">Faria Jahan</h5>
+                                    <p class="student-batch">৪৭তম বিসিএস প্রিলি ব্যাচ ১</p>
+                                </div>
+                                <p class="testimonial-text" data-full-text="স্যার আমি পিরু মোল্ল্যা স্যারকে রেগুলার ফলো করি। স্যারের ক্লাস অনেক ভাল লাগে স্যারের কথাগুলো আমাকে ইন্সপায়ার করে। সাফল্য একাডেমিতে পিরু মোল্ল্যা স্যার সহ সকল ক্যাডার টিচারদের ক্লাস পাওয়া যায়। আমি সাফল্য একাডেমির নিয়মিত স্টুডেন্ট এবং এখান থেকে অনেক কিছু শিখতে পারছি।" data-short-text="স্যার আমি পিরু মোল্ল্যা স্যারকে রেগুলার ফলো করি। স্যারের ক্লাস অনেক ভাল লাগে স্যারের কথাগুলো আমাকে ইন্সপায়ার করে। সাফল্য একাডেমিতে পিরু মোল্ল্যা স্যার সহ সকল ক্যাডার টিচ...">
+                                    <span class="testimonial-content-text">স্যার আমি পিরু মোল্ল্যা স্যারকে রেগুলার ফলো করি। স্যারের ক্লাস অনেক ভাল লাগে স্যারের কথাগুলো আমাকে ইন্সপায়ার করে। সাফল্য একাডেমিতে পিরু মোল্ল্যা স্যার সহ সকল ক্যাডার টিচ...</span>
+                                    <span class="see-more">See More</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/testimonials/wmZveoB3IWbIwy7zLsOd7GoYFiV8A3BI.png" alt="Tanvir Hossain">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="student-info">
+                                    <h5 class="student-name">Tanvir Hossain</h5>
+                                    <p class="student-batch">৪৭তম বিসিএস প্রিলি ব্যাচ</p>
+                                </div>
+                                <p class="testimonial-text" data-full-text="আসসালামু আলাইকুম স্যার, সাফল্য একাডেমির শিক্ষকদের পেশাদারিত্ব এবং পরামর্শমূলক সহায়তা আমাদের আত্মবিশ্বাস বৃদ্ধি করতে সাহায্য করে। ধন্যবাদ সাফল্য একাডেমিকে একঝাক বিসিএস ক্যাডারকে একসাথে আমাদের মাঝে নিয়ে আসার জন্য। আশা করি আমরা সাফল্যের সাথে আমাদের লক্ষ্যে পৌঁছাতে পারব।" data-short-text="আসসালামু আলাইকুম স্যার, সাফল্য একাডেমির শিক্ষকদের পেশাদারিত্ব এবং পরামর্শমূলক সহায়তা আমাদের আত্মবিশ্বাস বৃদ্ধি করতে সাহায্য করে। ধন্যবাদ সাফল্য একাডেমিকে একঝাক বিসিএস ক্য...">
+                                    <span class="testimonial-content-text">আসসালামু আলাইকুম স্যার, সাফল্য একাডেমির শিক্ষকদের পেশাদারিত্ব এবং পরামর্শমূলক সহায়তা আমাদের আত্মবিশ্বাস বৃদ্ধি করতে সাহায্য করে। ধন্যবাদ সাফল্য একাডেমিকে একঝাক বিসিএস ক্য...</span>
+                                    <span class="see-more">See More</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/testimonials/YgztliywcOphxwWFYea95s1N1s0igEMR.jpg" alt="তাহরিমা তমা">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="student-info">
+                                    <h5 class="student-name">তাহরিমা তমা</h5>
+                                    <p class="student-batch">প্রাইমারি প্রিমিয়াম ব্যাচ</p>
+                                </div>
+                                <p class="testimonial-text" data-full-text="আলহামদুলিল্লাহ সাফল্য একাডেমী প্রত্যেকটা স্যার ম্যাম শুধু আমাদের শিক্ষকই না, ধরতে গেলে আমাদের খুব কাছের বন্ধু। সত্যিই স্যারদের ক্লাসগুলো অসাধারণ। সাফল্য একাডেমিতে ক্লাস করতে পেরে আমরা সত্যিই মুগ্ধ। ইনশাআল্লাহ এখান থেকেই জীবনের সফলতা অর্জন করার সম্ভব যদি আমরা সাফল্য একাডেমীর প্রত্যেকটা স্যারের গাইডলাইন গুলো ঠিকভাবে ফিলাপ করতে পারি।" data-short-text="আলহামদুলিল্লাহ সাফল্য একাডেমী প্রত্যেকটা স্যার ম্যাম শুধু আমাদের শিক্ষকই না, ধরতে গেলে আমাদের খুব কাছের বন্ধু। সত্যিই স্যারদের ক্লাসগুলো অসাধারণ। সাফল্য একাডেমিতে ক্লা...">
+                                    <span class="testimonial-content-text">আলহামদুলিল্লাহ সাফল্য একাডেমী প্রত্যেকটা স্যার ম্যাম শুধু আমাদের শিক্ষকই না, ধরতে গেলে আমাদের খুব কাছের বন্ধু। সত্যিই স্যারদের ক্লাসগুলো অসাধারণ। সাফল্য একাডেমিতে ক্লা...</span>
+                                    <span class="see-more">See More</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 5 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/testimonials/4NVUlh7YodhnRPhKiBnenx8E9PsLAHr5.jpg" alt="অনি মিতা">
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="student-info">
+                                    <h5 class="student-name">অনি মিতা</h5>
+                                    <p class="student-batch">বিজ্ঞান + গণিত কম্বো কোর্স (ব্যাচ-০১)</p>
+                                </div>
+                                <p class="testimonial-text" data-full-text="সাফল্য একাডেমির স্যারদের কোন তুলনা হয় না, তাদের তুলনা তারাই, এক কথাই একের ভিতর সব। ❤️❤️❤️❤️❤️। তাদের প্রশংসা করার মত ভাষা আমার ক্ষুদ্র মস্তিষ্কে নেই।" data-short-text="সাফল্য একাডেমির স্যারদের কোন তুলনা হয় না, তাদের তুলনা তারাই, এক কথাই একের ভিতর সব। ❤️❤️❤️❤️❤️। তাদের প্রশংসা করার মত ভাষা আমার ক্ষুদ্র মস্তিষ্কে নেই।">
+                                    <span class="testimonial-content-text">সাফল্য একাডেমির স্যারদের কোন তুলনা হয় না, তাদের তুলনা তারাই, এক কথাই একের ভিতর সব। ❤️❤️❤️❤️❤️। তাদের প্রশংসা করার মত ভাষা আমার ক্ষুদ্র মস্তিষ্কে নেই।</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CSS for Student Testimonials -->
+<style>
+    /* Section styling */
+    .testimonials-section {
+        background-color: #f8f9fa;
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        color: #231F54;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    
+    @media (min-width: 768px) {
+        .section-title {
+            font-size: 36px;
+        }
+    }
+    
+    /* Testimonial Card */
+    .testimonial-card {
+        min-height: 250px;
+        position: relative;
+        margin-top: 50px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .testimonial-avatar {
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .testimonial-avatar img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        padding: 5px;
+    }
+    
+    .testimonial-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 50px 16px 16px;
+        border: 1px dashed #ccc;
+        border-radius: 12px;
+        background-color: white;
+    }
+    
+    .student-info {
+        text-align: center;
+        padding: 0 8px;
+        margin-bottom: 15px;
+    }
+    
+    .student-name {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    .student-batch {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+    }
+    
+    .testimonial-text {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    @media (min-width: 768px) {
+        .testimonial-text {
+            font-size: 16px;
+        }
+        
+        .testimonial-avatar img {
+            width: 96px;
+            height: 96px;
+        }
+        
+        /* Alternate testimonial card heights */
+        .swiper-slide:nth-child(even) .testimonial-card {
+            margin-top: 20px;
+        }
+        
+        .swiper-slide:nth-child(odd) .testimonial-card {
+            margin-top: 80px;
+        }
+    }
+    
+    .see-more {
+        color: #0d6efd;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+    
+    /* Swiper styling */
+    .testimonial-swiper-container {
+        position: relative;
+        padding: 0 20px;
+    }
+    
+    .swiper {
+        padding-bottom: 50px !important;
+    }
+    
+    .swiper-slide {
+        height: auto;
+        padding: 0 15px;
+    }
+    
+    /* Pagination styling */
+    .swiper-pagination {
+        position: relative;
+        bottom: 0 !important;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: #bbb;
+        opacity: 0.5;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
+    
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #231F54;
+        transform: scale(1.2);
+    }
+</style>
+
+<!-- JavaScript for Testimonials Swiper -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var swiper = new Swiper(".testimonial-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: false,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+            },
+        });
+        
+        // Add event listener for "See More" and "See Less" toggles
+        document.querySelectorAll('.see-more').forEach(function(element) {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const parentParagraph = this.parentElement;
+                const contentSpan = parentParagraph.querySelector('.testimonial-content-text');
+                const fullText = parentParagraph.getAttribute('data-full-text');
+                const shortText = parentParagraph.getAttribute('data-short-text');
+                
+                if (this.textContent === 'See More') {
+                    this.textContent = 'See Less';
+                    if (fullText) {
+                        contentSpan.textContent = fullText;
+                    }
+                } else {
+                    this.textContent = 'See More';
+                    if (shortText) {
+                        contentSpan.textContent = shortText;
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<!-- App Download Section -->
+<div class="app-download-section py-4 md:py-6">
+    <div class="container mx-auto px-3 md:px-0">
+        <div class="download-container">
+            <div class="download-content">
+                <div class="text-center md:text-left">
+                    <p class="heading-large">ডাউনলোড করুন</p>
+                    <p class="heading-medium">আমাদের মোবাইল অ্যাপ,</p>
+                    <p class="heading-medium">প্রস্তুতি শুরু করুন এখন থেকেই</p>
+                </div>
+                <div class="app-links">
+                    <a class="cursor-pointer" href="https://play.google.com/store/apps/details?id=com.nextive_safollo.ac" target="_blank">
+                        <img src="https://www.safollo.ac/app/google.png" alt="Google Play Store">
+                    </a>
+                </div>
+            </div>
+            <div class="app-image">
+                <div class="flex justify-center">
+                    <img class="phone-image" src="https://www.safollo.ac/app/phone.png" alt="Mobile App Screenshot">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS for App Download Section -->
+<style>
+    .app-download-section {
+        width: 100%;
+    }
+    
+    .download-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        background-image: linear-gradient(to right, #231f54, #231f54, #0890fe);
+        border-radius: 1.5rem;
+        overflow: hidden;
+    }
+    
+    .download-content {
+        padding: 1rem;
+    }
+    
+    .heading-large {
+        font-size: 26px;
+        color: white;
+        font-weight: 600;
+    }
+    
+    .heading-medium {
+        font-size: 26px;
+        color: white;
+        font-weight: 500;
+    }
+    
+    .app-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+    
+    .app-image {
+        padding-top: 0;
+    }
+    
+    .phone-image {
+        height: 260px;
+    }
+    
+    @media (min-width: 768px) {
+        .download-container {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .download-content {
+            padding: 0;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            padding-left: 100px;
+        }
+        
+        .heading-large {
+            font-size: 36px;
+        }
+        
+        .heading-medium {
+            font-size: 30px;
+        }
+        
+        .app-links {
+            justify-content: flex-start;
+        }
+        
+        .phone-image {
+            height: 340px;
+        }
+    }
+</style>
+
+<!-- Required Swiper JS and CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- Modal for Course Advertisement (With explicit X button) -->
+    <div class="modal fade" id="courseModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="promo-modal">
+                        <!-- Red X Close Button -->
+                        <button type="button" class="modal-close-btn" data-bs-dismiss="modal">×</button>
+                        
+                        <!-- Banner image at top -->
+                        <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/advertisements/OI9jxJe42TIKDZdDSqZCNNZylpgd76Qa.jpeg" class="img-fluid mb-3" alt="শিক্ষক নিবন্ধন">
+                        
+                        <!-- Title -->
+                        <h3>47th BCS 100 Days Exam Batch-02</h3>
+                        <p>ভর্তি চলছে...</p>
+                        
+                        <!-- Features with checkmarks -->
+                        <div class="feature-list mb-2">
+                            <p>
+                                <span class="check-mark">✓</span>
+                                ১০০ টি লাইভ ক্লাস
+                                <span class="check-mark">✓</span>
+                                ৭টি পিডিএফ এক্সাম এর ব্যাখ্যা
+                            </p>
+                        </div>
+                        
+                        <!-- Action button -->
+                        <a href="#" class="action-btn">
+                            👉 বিস্তারিত জানতে এখানে ক্লিক করুন!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript for image rotation with navigation dots -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show the modal on page load
+            var myModal = new bootstrap.Modal(document.getElementById('courseModal'));
+            myModal.show();
+            
+            // Manual image rotation with navigation dots
+            const heroImage = document.getElementById('heroImage');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const images = [
+                "https://saflloacademy.sgp1.digitaloceanspaces.com/advertisements/OI9jxJe42TIKDZdDSqZCNNZylpgd76Qa.jpeg",
+                "https://saflloacademy.sgp1.digitaloceanspaces.com/advertisements/JQSZP409Ne1IIGrcmJlKTokowvXBJafN.webp", 
+                "https://saflloacademy.sgp1.digitaloceanspaces.com/advertisements/v3EjnfX1SHNmZmeVChWFVVedeZvIrlvq.webp"
+            ];
+            
+            let currentIndex = 0;
+            let intervalId;
+            
+            // Function to update the image and active dot
+            function updateImage(index) {
+                // Update active dot
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+                
+                // Update image with fade effect
+                heroImage.style.opacity = 0;
+                
+                setTimeout(function() {
+                    heroImage.src = images[index];
+                    heroImage.style.opacity = 1;
+                }, 300);
+                
+                currentIndex = index;
+            }
+            
+            // Set up click event for each dot
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    
+                    // Clear existing interval and set a new one
+                    clearInterval(intervalId);
+                    updateImage(index);
+                    startAutoRotation();
+                });
+            });
+            
+            // Function to start auto rotation
+            function startAutoRotation() {
+                intervalId = setInterval(function() {
+                    const nextIndex = (currentIndex + 1) % images.length;
+                    updateImage(nextIndex);
+                }, 5000);
+            }
+            
+            // Initial setup
+            heroImage.style.transition = "opacity 0.3s ease-in-out";
+            startAutoRotation();
+        });
+    </script>
+
+    <!-- Mobile Login Section -->
+<main class="login-page mb-4">
+    <div class="container">
+        <div class="login-card">
+            <div class="login-content">
+                <!-- Logo Column -->
+                <div class="logo-column">
+                    <img class="logo-image" src="https://www.safollo.ac/logo/logo.png" alt="সাফল্য একাডেমি">
+                </div>
+                
+                <!-- Login Form Column -->
+                <div class="form-column">
+                    <div class="form-wrapper">
+                        <div class="form-container">
+                            <p class="form-title">আপনার মোবাইল নাম্বার দিয়ে লগইন করুন</p>
+                            <input type="text" placeholder="আপনার মোবাইল নাম্বার দিন" class="phone-input">
+                            <button class="continue-button">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- CSS for Mobile Login Section -->
+<style>
+    /* Main Section */
+    .login-page {
+        padding-top: 8rem; /* 32px equivalent */
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Card Styling */
+    .login-card {
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
+        border: 1px solid #e5e7eb;
+        margin: 0 1rem;
+    }
+    
+    /* Content Layout */
+    .login-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem 4rem;
+        gap: 1.5rem;
+    }
+    
+    /* Logo Column */
+    .logo-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        order: 1;
+    }
+    
+    .logo-image {
+        height: 120px;
+        border-radius: 0.375rem;
+    }
+    
+    /* Form Column */
+    .form-column {
+        order: 2;
+    }
+    
+    .form-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .form-container {
+        width: 100%;
+    }
+    
+    /* Form Elements */
+    .form-title {
+        font-size: 18px;
+        font-weight: 600;
+        font-family: 'Roboto', sans-serif;
+        padding-bottom: 0.5rem;
+    }
+    
+    .phone-input {
+        height: 2.5rem;
+        width: 100%;
+        border: 2px solid #231f54;
+        border-radius: 0.375rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .continue-button {
+        background-color: #9ca3af; /* gray-400 */
+        color: #d1d5db; /* gray-300 */
+        cursor: not-allowed;
+        width: 100%;
+        margin-top: 0.75rem;
+        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.375rem;
+        border: none;
+    }
+    
+    /* Responsive Adjustments */
+    @media (min-width: 768px) {
+        .login-content {
+            grid-template-columns: 1fr 1fr;
+            padding: 6rem 1rem 7rem;
+            gap: 2.5rem;
+        }
+        
+        .logo-image {
+            height: 200px;
+        }
+        
+        .form-container {
+            width: 60%;
+        }
+        
+        .form-title {
+            font-size: 30px;
+        }
+        
+        .phone-input {
+            height: 3rem;
+            font-size: 22px;
+        }
+        
+        .continue-button {
+            margin-top: 1.25rem;
+            font-size: 22px;
+        }
+    }
+</style>
+
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <!-- Main Footer Content -->
+        <div class="footer-content">
+            <!-- Company Info Column -->
+            <div class="company-info">
+                <!-- Logo -->
+                <div class="footer-logo">
+                    <img src="https://www.safollo.ac/logo/footerLogo.png" alt="সাফল্য একাডেমি">
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <a href="https://maps.app.goo.gl/vnBJufh4AbmMEPqm9" target="_blank">
+                            <span class="contact-label">ঠিকানাঃ</span>
+                            <span class="contact-text">House 10, Road-16, Block-D, Mirpur -06, Pallabi, Dhaka-1216</span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="tel:09638220000" target="_blank">
+                            <span class="contact-label">কল করুনঃ</span>
+                            <span class="contact-text">09638220000</span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="https://wa.me/8801601222110" target="_blank">
+                            <span class="contact-label">হোয়াটসঅ্যাপঃ</span>
+                            <span class="contact-text">+8801601222110</span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="mailto:safollo.ac@gmail.com" target="_blank">
+                            <span class="contact-label">ইমেইলঃ</span>
+                            <span class="contact-text">safollo.ac@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Organization Links Column (Desktop) -->
+            <div class="footer-links organization-links">
+                <div class="footer-heading">
+                    <h3>প্রতিষ্ঠান</h3>
+                </div>
+                <div class="links-list">
+                    <div class="link-item">
+                        <a href="/team-success">টিম সাফল্য</a>
+                    </div>
+                    <div class="link-item">
+                        <a href="/contact">যোগাযোগ</a>
+                    </div>
+                    <div class="link-item">
+                        <a href="/notice">নোটিশ</a>
+                    </div>
+                    <div class="link-item">
+                        <a href="/blogs">ব্লগ</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Links Column (Desktop) -->
+            <div class="footer-links other-links">
+                <div class="footer-heading">
+                    <h3>অন্যান্য</h3>
+                </div>
+                <div class="links-list">
+                    <div class="link-item">
+                        <a href="/privacy_policy">প্রাইভেসি পলিসি</a>
+                    </div>
+                    <div class="link-item">
+                        <a href="/terms_conditions">নীতিমালা</a>
+                    </div>
+                    <div class="link-item">
+                        <a href="/refund_policy">রিফান্ড নীতিমালা</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- App Download Column -->
+            <div class="app-download">
+                <div class="app-info">
+                    <h3 class="app-heading">দেশসেরা চাকরি প্রস্তুতির অনলাইন প্ল্যাটফর্ম।</h3>
+                    <h4 class="app-subheading">অ্যাপ ডাউনলোড করুন</h4>
+                </div>
+                <div class="app-button">
+                    <a href="https://play.google.com/store/apps/details?id=com.nextive_safollo.ac" target="_blank">
+                        <img src="https://www.safollo.ac/app/google.png" alt="Google Play">
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/safollo.ac" target="_blank" class="social-icon">
+                        <img src="https://www.safollo.ac/footerSocial/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="#" target="_blank" class="social-icon">
+                        <img src="https://www.safollo.ac/footerSocial/linkedin.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://www.instagram.com/safollo.ac/" target="_blank" class="social-icon">
+                        <img src="https://www.safollo.ac/footerSocial/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.youtube.com/@Safolloac" target="_blank" class="social-icon">
+                        <img src="https://www.safollo.ac/footerSocial/youtube.png" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Links Section -->
+            <div class="mobile-links">
+                <div class="mobile-column">
+                    <div class="mobile-heading">
+                        <h3>প্রতিষ্ঠান</h3>
+                    </div>
+                    <div class="links-list">
+                        <div class="link-item">
+                            <a href="/team-success">টিম সাফল্য</a>
+                        </div>
+                        <div class="link-item">
+                            <a href="/contact">যোগাযোগ</a>
+                        </div>
+                        <div class="link-item">
+                            <a href="/notice">নোটিশ</a>
+                        </div>
+                        <div class="link-item">
+                            <a href="/blogs">ব্লগ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-column">
+                    <div class="mobile-heading">
+                        <h3>অন্যান্য</h3>
+                    </div>
+                    <div class="links-list">
+                        <div class="link-item">
+                            <a href="/privacy_policy">প্রাইভেসি পলিসি</a>
+                        </div>
+                        <div class="link-item">
+                            <a href="/terms_conditions">নীতিমালা</a>
+                        </div>
+                        <div class="link-item">
+                            <a href="/refund_policy">রিফান্ড নীতিমালা</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <img src="https://www.safollo.ac/app/SSLCommerz.png" alt="Payment methods" class="payment-img">
+        </div>
+        
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2025 The productive Company. Inc.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- CSS for Footer -->
+<style>
+    .footer {
+        background-color: #231f54;
+        color: white;
+        padding: 1rem 0;
+        font-family: 'Noto Sans Bengali', sans-serif;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Company Info Section */
+    .company-info {
+        margin-bottom: 1rem;
+    }
+    
+    .footer-logo {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-logo img {
+        height: 60px;
+    }
+    
+    .contact-info {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-item a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .contact-label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-right: 0.5rem;
+    }
+    
+    .contact-text {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    /* Footer Links */
+    .footer-links {
+        display: none;
+    }
+    
+    .footer-heading h3 {
+        font-size: 20px;
+        font-weight: 600;
+        border-bottom: 2px solid white;
+        width: fit-content;
+        padding-bottom: 5px;
+    }
+    
+    .links-list {
+        margin-top: 1rem;
+    }
+    
+    .link-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .link-item a {
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    
+    .link-item a:hover {
+        text-decoration: underline;
+    }
+    
+    /* App Download Section */
+    .app-info {
+        margin-bottom: 0.5rem;
+    }
+    
+    .app-heading {
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .app-subheading {
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+    }
+    
+    .app-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+    
+    .social-links {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .social-icon {
+        margin-left: 0.5rem;
+    }
+    
+    .social-icon img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Mobile Links */
+    .mobile-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .mobile-heading {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .mobile-heading h3 {
+        font-size: 20px;
+        font-weight: 600;
+        border-bottom: 2px solid white;
+        padding-bottom: 5px;
+    }
+    
+    /* Payment Methods */
+    .payment-methods {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
+    }
+    
+    .payment-img {
+        border-radius: 6px;
+        max-width: 100%;
+    }
+    
+    /* Copyright */
+    .copyright {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+    
+    .copyright p {
+        font-size: 12px;
+        font-weight: 500;
+        color: white;
+    }
+    
+    /* Media Queries for responsive design */
+    @media (min-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 2rem;
+        }
+        
+        .mobile-links {
+            display: none;
+        }
+        
+        .footer-links {
+            display: block;
+            padding-left: 2rem;
+            padding-top: 28px;
+        }
+        
+        .app-download {
+            padding-left: 2rem;
+            padding-top: 28px;
+        }
+        
+        .contact-item a {
+            flex-direction: row;
+        }
+        
+        .footer-heading, .link-item, .app-heading, .app-subheading {
+            text-align: left;
+        }
+        
+        .app-button, .social-links {
+            justify-content: flex-start;
+        }
+        
+        .payment-img {
+            height: 140px;
+        }
+        
+        .copyright p {
+            font-size: 16px;
+        }
+    }
+</style>
+</body>
+</html>
