@@ -189,14 +189,14 @@
         
         .modal-body {
             padding: 0;
-            background: #3f51b5;
+            background:#1f525cf5;
             color: white;
         }
         
         .promo-modal {
             text-align: center;
             padding: 20px;
-            background: #3f51b5;
+            background: #1f525cf5;
             color: white;
             position: relative;
         }
@@ -305,7 +305,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://www.safollo.ac/logo/logo.png" alt="সাফল্য একাডেমি">
+                <img src="https://www.bttdc.org/upload/setting/logo/1737827788bttdc-logo.png" alt="সাফল্য একাডেমি">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -353,32 +353,282 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="container">
-        <div class="hero-section">
-            <div class="row align-items-center px-3 px-md-5">
-                <div class="col-lg-6 hero-text">
-                    <h1>লক্ষ্য আপনার,<br>অঙ্গীকার আমাদের!</h1>
-                    <p>নতুন বছর, নতুন স্বপ্ন, নতুন সম্ভাবনা! সাফল্য একাডেমি নিয়ে এসেছে সরকারি চাকরির প্রস্তুতির জন্য গুণগত মানসম্পন্ন কোর্স। BCS, প্রাইমারি, NTRCA এবং অন্যান্য সরকারি চাকরির জন্য বিশেষভাবে ডিজাইন করা কোর্সগুলো বিসিএস ক্যাডার স্যারদের সরাসরি তত্ত্বাবধানে পরিচালিত। জ্ঞান ও অভিজ্ঞতার সমন্বয়ে, আপনার স্বপ্ন পূরণের পথে আমরা সর্বদা আপনার পাশে আছি! চলুন, নতুন বছরে একসাথে সাফল্যের যাত্রা শুরু করি! আপনার সাফল্যই আমাদের প্রতিজ্ঞা!</p>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="btn btn-outline-light">Our Course</a>
-                        <a href="#" class="btn btn-outline-light">Download App</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 hero-image">
-                    <!-- Single hero image with custom carousel indicators -->
-                    <img id="heroImage" src="https://saflloacademy.sgp1.digitaloceanspaces.com/advertisements/OI9jxJe42TIKDZdDSqZCNNZylpgd76Qa.jpeg" class="d-block w-100" alt="47th BCS 100 Days Exam Batch-02">
-                    
-                    <!-- Custom carousel indicators -->
-                    <div class="carousel-indicators-custom mt-3">
-                        <div class="carousel-dot active" data-index="0"></div>
-                        <div class="carousel-dot" data-index="1"></div>
-                        <div class="carousel-dot" data-index="2"></div>
-                    </div>
-                </div>
+  <!-- Banner Carousel Section -->
+<div class="banner-container">
+    <div class="banner-slider" id="bannerSlider">
+        <div class="banner-wrapper" id="bannerWrapper">
+            <!-- Banner 1 -->
+            <div class="banner-slide">
+                <img src="https://www.bttdc.org/upload/banner/1826403861948598.jpg" alt="47th BCS 100 Days Exam Batch-02" class="banner-image">
+            </div>
+            
+            <!-- Banner 2 -->
+            <div class="banner-slide">
+                <img src="https://www.bttdc.org/upload/banner/1826403931995513.jpg" alt="Special Science and Math Combo Course" class="banner-image">
+            </div>
+            
+            <!-- Banner 3 -->
+            <div class="banner-slide">
+                <img src="https://www.bttdc.org/upload/slider/1826468939261451.jpg" alt="Primary Teacher Recruitment Premium Batch" class="banner-image">
             </div>
         </div>
+        
+        <!-- Navigation Dots -->
+        <div class="banner-controls">
+            <div class="banner-dot active" data-index="0"></div>
+            <div class="banner-dot" data-index="1"></div>
+            <div class="banner-dot" data-index="2"></div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="banner-arrow banner-prev">❮</button>
+        <button class="banner-arrow banner-next">❯</button>
     </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Carousel Variables
+    const bannerWrapper = document.getElementById('bannerWrapper');
+    const slides = document.querySelectorAll('.banner-slide');
+    const dots = document.querySelectorAll('.banner-dot');
+    const prevButton = document.querySelector('.banner-prev');
+    const nextButton = document.querySelector('.banner-next');
+    
+    let currentIndex = 0;
+    let slideWidth = slides[0].clientWidth;
+    let autoplayInterval;
+    const slideDuration = 5000; // 5 seconds
+    
+    // Initial Setup
+    function updateSlidePosition() {
+        slideWidth = slides[0].clientWidth; // Update slide width
+        bannerWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+    
+    // Set active dot
+    function updateDots() {
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+    }
+    
+    // Next slide function
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlidePosition();
+        updateDots();
+    }
+    
+    // Previous slide function
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlidePosition();
+        updateDots();
+    }
+    
+    // Start autoplay
+    function startAutoplay() {
+        stopAutoplay(); // Clear any existing interval
+        autoplayInterval = setInterval(nextSlide, slideDuration);
+    }
+    
+    // Stop autoplay
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+        }
+    }
+    
+    // Event Listeners
+    nextButton.addEventListener('click', function() {
+        nextSlide();
+        startAutoplay(); // Reset autoplay timer
+    });
+    
+    prevButton.addEventListener('click', function() {
+        prevSlide();
+        startAutoplay(); // Reset autoplay timer
+    });
+    
+    // Dot navigation
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            currentIndex = parseInt(this.getAttribute('data-index'));
+            updateSlidePosition();
+            updateDots();
+            startAutoplay(); // Reset autoplay timer
+        });
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        updateSlidePosition();
+    });
+    
+    // Initialize the carousel
+    updateSlidePosition();
+    updateDots();
+    startAutoplay();
+    
+    // Pause autoplay on hover
+    const bannerSlider = document.getElementById('bannerSlider');
+    bannerSlider.addEventListener('mouseenter', stopAutoplay);
+    bannerSlider.addEventListener('mouseleave', startAutoplay);
+    
+    // Touch events for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    bannerSlider.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoplay();
+    });
+    
+    bannerSlider.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoplay();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum swipe distance
+        
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left - next slide
+            nextSlide();
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right - previous slide
+            prevSlide();
+        }
+    }
+});
+</script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+    
+    body {
+        font-family: 'Noto Sans Bengali', sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+    /* Main Banner Container */
+    .banner-container {
+        width: 100%;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Banner Slider */
+    .banner-slider {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .banner-wrapper {
+        display: flex;
+        transition: transform 0.6s ease-in-out;
+        width: 100%;
+    }
+    
+    .banner-slide {
+        flex: 0 0 100%;
+        position: relative;
+        height: auto;
+    }
+    
+    .banner-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    
+    /* Custom Navigation Controls */
+    .banner-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+    
+    .banner-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .banner-dot.active {
+        background-color: white;
+        transform: scale(1.2);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Arrow Navigation */
+    .banner-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.7);
+        color: #333;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        border: none;
+        outline: none;
+    }
+    
+    .banner-arrow:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        transform: translateY(-50%) scale(1.1);
+    }
+    
+    .banner-prev {
+        left: 20px;
+    }
+    
+    .banner-next {
+        right: 20px;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .banner-arrow {
+            width: 32px;
+            height: 32px;
+            font-size: 16px;
+        }
+        
+        .banner-prev {
+            left: 10px;
+        }
+        
+        .banner-next {
+            right: 10px;
+        }
+        
+        .banner-dot {
+            width: 10px;
+            height: 10px;
+        }
+    }
+</style>
 
    <!-- Course Category Section -->
 <section class="category-section">
@@ -475,7 +725,7 @@
     .section-title {
         font-size: 24px;
         font-weight: 600;
-        color: #231F54;
+        color: #027a93f5;
         text-align: center;
     }
     
@@ -504,19 +754,19 @@
     
     /* Category Card */
     .category-card {
-        background-color: #92CEFF;
+        background-color: #027a93f5;
         border-radius: 0.75rem;
         padding: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid #2189DE;
-        color: #231F54;
+        border: 1px solid #086476f5;
+        color: white;
         transition: all 0.3s ease-in-out;
     }
     
     .category-card:hover {
-        background-color: #2189DE;
+        background-color: #1f525cf5;
         color: white;
     }
     
@@ -826,7 +1076,7 @@
     /* Section title */
     .section-title {
         font-size: 24px;
-        color: #231F54;
+        color: #027a93f5;
         font-weight: 600;
         margin-bottom: 8px;
     }
@@ -982,7 +1232,7 @@
     }
     
     .view-details-btn:hover {
-        background-color: #0890FF;
+        background-color: #027a93f5;
         color: white;
     }
     
@@ -1052,7 +1302,7 @@
     
     .swiper-pagination-bullet-active {
         opacity: 1;
-        background: #0890FF;
+        background: #027a93f5;
         transform: scale(1.2);
         box-shadow: 0 0 5px rgba(8, 144, 255, 0.5);
     }
@@ -1062,7 +1312,7 @@
         width: 40px !important;
         height: 40px !important;
         background-color: rgba(255, 255, 255, 0.9) !important;
-        color: #0890FF !important;
+        color: #027a93f5 !important;
         border-radius: 50% !important;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
         z-index: 10 !important;
@@ -1086,7 +1336,7 @@
     }
     
     .custom-nav-btn:hover {
-        background-color: #0890FF !important;
+        background-color: #027a93f5 !important;
         color: white !important;
         transform: scale(1.1) !important;
     }
@@ -1094,7 +1344,7 @@
     /* See all button */
     .see-all-btn {
         display: inline-block;
-        background-color: #0890FF;
+        background-color: #027a93f5;
         color: white;
         padding: 10px 28px;
         border-radius: 24px;
@@ -1106,7 +1356,7 @@
     }
     
     .see-all-btn:hover {
-        background-color: #0077e6;
+        background-color: #1f525cf5;
         transform: translateY(-3px);
         box-shadow: 0 5px 15px rgba(8, 144, 255, 0.4);
         color: white;
@@ -1319,7 +1569,7 @@
     
     .section-title {
         font-size: 24px;
-        color: #231F54;
+        color: #027a93f5;
         font-weight: 600;
         margin-bottom: 30px;
     }
@@ -1394,18 +1644,17 @@
 </style>
 
 
-
 <!-- Teacher Panel Section with Carousel -->
-<div class="teacher-panel-section py-5">
+<section class="teacher-panel-section py-5">
     <div class="container">
         <!-- Section Title -->
-        <div class="pb-4 md:pb-8 px-2 md:px-0">
-            <h2 class="section-title text-center mb-2">শিক্ষক প্যানেল</h2>
-            <p class="text-center text-muted small">সাফল্য একাডেমির দেশসেরা শিক্ষকগণ</p>
+        <div class="pb-4 text-center">
+            <h2 class="section-title mb-2">শিক্ষক প্যানেল</h2>
+            <p class="text-muted small">সাফল্য একাডেমির দেশসেরা শিক্ষকগণ</p>
         </div>
         
         <!-- Teacher Carousel -->
-        <div class="px-4 md:px-0">
+        <div class="px-4">
             <div class="swiper teacher-swiper">
                 <div class="swiper-wrapper">
                     <!-- Teacher 1 -->
@@ -1416,7 +1665,11 @@
                             </div>
                             <div class="teacher-info">
                                 <h5 class="teacher-name">মোঃ রাকিব হোসেন</h5>
-                                <p class="teacher-designation">বিসিএস অডিট ও একাউন্টস ক্যাডার (৪০তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি <span class="see-more">See More</span></p>
+                                <p class="teacher-designation">
+                                    <span class="short-text">বিসিএস অডিট ও একাউন্টস ক্যাডার...</span>
+                                    <span class="full-text">বিসিএস অডিট ও একাউন্টস ক্যাডার (৪০তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি</span>
+                                    <span class="see-more">See More</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -1429,7 +1682,11 @@
                             </div>
                             <div class="teacher-info">
                                 <h5 class="teacher-name">মাহমুদ হাসান</h5>
-                                <p class="teacher-designation">বিসিএস অডিট ও একাউন্টস ক্যাডার (৪০তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি <span class="see-more">See More</span></p>
+                                <p class="teacher-designation">
+                                    <span class="short-text">বিসিএস অডিট ও একাউন্টস ক্যাডার...</span>
+                                    <span class="full-text">বিসিএস অডিট ও একাউন্টস ক্যাডার (৪০তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি</span>
+                                    <span class="see-more">See More</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -1442,20 +1699,28 @@
                             </div>
                             <div class="teacher-info">
                                 <h5 class="teacher-name">সোহাগ হোসেন</h5>
-                                <p class="teacher-designation">বিসিএস তথ্য ক্যাডার (৩৮তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি <span class="see-more">See More</span></p>
+                                <p class="teacher-designation">
+                                    <span class="short-text">বিসিএস তথ্য ক্যাডার...</span>
+                                    <span class="full-text">বিসিএস তথ্য ক্যাডার (৩৮তম বিসিএস), সিনিয়র শিক্ষক: আইসিটি</span>
+                                    <span class="see-more">See More</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Teacher 4 -->
                     <div class="swiper-slide">
-                        <div class="teacher-card active-card">
+                        <div class="teacher-card">
                             <div class="teacher-photo">
                                 <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/eSa7W07As3ZnnxbfRhafRGafEhZcHez7.webp" alt="সৈকত বিশ্বাস">
                             </div>
                             <div class="teacher-info">
                                 <h5 class="teacher-name">সৈকত বিশ্বাস</h5>
-                                <p class="teacher-designation">সহকারি কমিশনার-প্রশাসন, ৪৩তম বিসিএস, (কুয়েট) <span class="see-more">See More</span></p>
+                                <p class="teacher-designation">
+                                    <span class="short-text">সহকারি কমিশনার-প্রশাসন...</span>
+                                    <span class="full-text">সহকারি কমিশনার-প্রশাসন, ৪৩তম বিসিএস, (কুয়েট)</span>
+                                    <span class="see-more">See More</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -1468,12 +1733,16 @@
                             </div>
                             <div class="teacher-info">
                                 <h5 class="teacher-name">মানসূরা আক্তার মৌ</h5>
-                                <p class="teacher-designation">বিসিএস অডিট এন্ড একাউন্টস (৪০ তম বিসিএস), সিনিয়র শিক্ষক <span class="see-more">See More</span></p>
+                                <p class="teacher-designation">
+                                    <span class="short-text">বিসিএস অডিট এন্ড একাউন্টস...</span>
+                                    <span class="full-text">বিসিএস অডিট এন্ড একাউন্টস (৪০ তম বিসিএস), সিনিয়র শিক্ষক</span>
+                                    <span class="see-more">See More</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Additional Teachers -->
+                    <!-- Teacher 6 -->
                     <div class="swiper-slide">
                         <div class="teacher-card">
                             <div class="teacher-photo">
@@ -1481,78 +1750,37 @@
                             </div>
                             <div class="teacher-info">
                                 <h5 class="teacher-name">সৈয়দ আমিনুল হক</h5>
-                                <p class="teacher-designation">বিসিএস (সাধারণ শিক্ষা) (৪৩তম বিসিএস), এমএ ইংরেজি <span class="see-more">See More</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="teacher-card">
-                            <div class="teacher-photo">
-                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/7UzaEn4IRD8BOGHSObnzjC11qQZETa8x.webp" alt="মোঃ আব্দুস সাত্তার">
-                            </div>
-                            <div class="teacher-info">
-                                <h5 class="teacher-name">মোঃ আব্দুস সাত্তার</h5>
-                                <p class="teacher-designation">বিসিএস গণপূর্ত (৪৩তম বিসিএস), বিএসসি ইঞ্জিঃ (পুরকৌশল) <span class="see-more">See More</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="teacher-card">
-                            <div class="teacher-photo">
-                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/u3T0IDfr4uDM14XgQ37SikUsljGgNgP3.jpg" alt="মোহাম্মদ মুশফিকুজ্জোহা">
-                            </div>
-                            <div class="teacher-info">
-                                <h5 class="teacher-name">মোহাম্মদ মুশফিকুজ্জোহা</h5>
-                                <p class="teacher-designation">বিসিএস তথ্য (৪০তম বিসিএস), বিএসসি ইন ইইই <span class="see-more">See More</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="teacher-card">
-                            <div class="teacher-photo">
-                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/sJXogZHhobOoJUSQ2ABbwwngUWcrgthe.jpg" alt="নাসিফ ইনসান">
-                            </div>
-                            <div class="teacher-info">
-                                <h5 class="teacher-name">নাসিফ ইনসান</h5>
-                                <p class="teacher-designation">বিসিএস পুলিশ (৪১তম বিসিএস) BSS, MSS(DU)</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="teacher-card">
-                            <div class="teacher-photo">
-                                <img src="https://saflloacademy.sgp1.digitaloceanspaces.com/instructors/QaXswxKdkRmaRMTIV3IB2DOvBhSe0rhh.jpg" alt="মোঃ রাকিব হোসেন">
-                            </div>
-                            <div class="teacher-info">
-                                <h5 class="teacher-name">মোঃ রাকিব হোসেন</h5>
-                                <p class="teacher-designation">বিসিএস তথ্য (৪৩তম বিসিএস), বিএসসি ইঞ্জিঃ (তড়িৎ কৌশল) <span class="see-more">See Less</span></p>
+                                <p class="teacher-designation">
+                                    <span class="short-text">বিসিএস (সাধারণ শিক্ষা)...</span>
+                                    <span class="full-text">বিসিএস (সাধারণ শিক্ষা) (৪৩তম বিসিএস), এমএ ইংরেজি</span>
+                                    <span class="see-more">See More</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Navigation Arrows -->
+                <div class="swiper-button-next custom-nav-btn"></div>
+                <div class="swiper-button-prev custom-nav-btn"></div>
                 
                 <!-- Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- CSS for Teacher Panel Section -->
 <style>
     /* Section styling */
     .teacher-panel-section {
         background-color: #f8f9fa;
-        padding: 40px 0 60px;
+        padding: 60px 0;
     }
     
     .section-title {
         font-size: 24px;
-        color: #231F54;
+        color: #027a93f5;
         font-weight: 600;
         margin-bottom: 8px;
     }
@@ -1564,61 +1792,43 @@
     }
     
     /* Teacher card styling */
-    /* Remove the 'active-card' class from all cards in your HTML */
-
-/* Then modify the teacher card styling */
-.teacher-card {
-    background-color: white;
-    color: #515151;
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    transition: all 0.3s ease;
-    height: 100%;
-    transform: scale(1);
-}
-
-.teacher-card:hover {
-    background-color: #231F54;
-    color: white;
-    transform: scale(1.05);
-}
-
-/* Make sure the see-more text stays blue on hover */
-.teacher-card:hover .see-more {
-    color: #4dabff;
-}
+    .teacher-card {
+        background-color: white;
+        color: #515151;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    
+    .teacher-card:hover {
+        background-color: #027a93f5;
+        color: white;
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(35, 31, 84, 0.3);
+    }
     
     .teacher-photo {
-        margin-bottom: 16px;
+        margin-bottom: 20px;
         background-color: #f3f3f3;
         border-radius: 50%;
         padding: 8px;
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 1px solid #e0e0e0;
     }
     
     .teacher-photo img {
-        width: 130px;
-        height: 130px;
+        width: 160px;
+        height: 160px;
         border-radius: 50%;
         object-fit: cover;
-    }
-    
-    @media (min-width: 768px) {
-        .teacher-photo img {
-            width: 150px;
-            height: 150px;
-        }
-        
-        .teacher-card {
-            padding: 24px;
-        }
     }
     
     .teacher-info {
@@ -1627,23 +1837,22 @@
     }
     
     .teacher-name {
-        font-size: 18px;
+        font-size: 22px;
         font-weight: 600;
-        margin-bottom: 0;
-        height: 30px;
+        margin-bottom: 10px;
+        height: auto;
     }
     
     .teacher-designation {
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 16px;
         padding-top: 8px;
         line-height: 1.4;
     }
     
-    @media (min-width: 768px) {
-        .teacher-designation {
-            font-size: 16px;
-        }
+    /* Text show/hide functionality */
+    .full-text {
+        display: none;
     }
     
     .see-more {
@@ -1651,6 +1860,7 @@
         cursor: pointer;
         display: inline-block;
         margin-left: 5px;
+        font-weight: 500;
     }
     
     .teacher-card:hover .see-more {
@@ -1660,10 +1870,31 @@
     /* Swiper styling */
     .swiper {
         padding-bottom: 50px !important;
+        overflow: hidden !important;
     }
     
     .swiper-slide {
         height: auto;
+    }
+    
+    /* Custom navigation button styling */
+    .custom-nav-btn {
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        color: #027a93f5 !important;
+    }
+    
+    .custom-nav-btn:hover {
+        background-color: #027a93f5;
+        color: white !important;
+    }
+    
+    .custom-nav-btn:after {
+        font-size: 20px !important;
+        font-weight: bold !important;
     }
     
     /* Enhanced pagination styling */
@@ -1689,60 +1920,104 @@
     
     .swiper-pagination-bullet-active {
         opacity: 1;
-        background: #231F54;
+        background: #027a93f5;
         transform: scale(1.2);
+        box-shadow: 0 0 5px rgba(35, 31, 84, 0.3);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .teacher-photo img {
+            width: 140px;
+            height: 140px;
+        }
+        
+        .teacher-card {
+            padding: 20px;
+        }
+        
+        .teacher-name {
+            font-size: 20px;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .teacher-photo img {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .teacher-name {
+            font-size: 18px;
+        }
+        
+        .teacher-designation {
+            font-size: 14px;
+        }
     }
 </style>
 
-<!-- JavaScript for Teacher Swiper -->
+<!-- Required Swiper CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var swiper = new Swiper(".teacher-swiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            grabCursor: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-                dynamicBullets: false,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
+        // Initialize Swiper with a slight delay to ensure everything is loaded
+        setTimeout(function() {
+            var swiper = new Swiper(".teacher-swiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                grabCursor: true,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
                 },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
                 },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 20,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
                 },
-                1200: {
-                    slidesPerView: 5,
-                    spaceBetween: 20,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
                 },
-            },
-        });
+            });
+        }, 100);
         
         // Add event listener for "See More" and "See Less" toggles
         document.querySelectorAll('.see-more').forEach(function(element) {
             element.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation(); // Prevent card hover effect triggering
+                
+                const parentElement = this.parentElement;
+                const shortText = parentElement.querySelector('.short-text');
+                const fullText = parentElement.querySelector('.full-text');
                 
                 if (this.textContent === 'See More') {
                     this.textContent = 'See Less';
-                    // Logic to show more content would go here
+                    shortText.style.display = 'none';
+                    fullText.style.display = 'inline';
                 } else {
                     this.textContent = 'See More';
-                    // Logic to show less content would go here
+                    shortText.style.display = 'inline';
+                    fullText.style.display = 'none';
                 }
             });
         });
     });
 </script>
-
 <!-- Student Testimonials Section -->
 <section class="testimonials-section py-5">
     <div class="container">
@@ -1867,9 +2142,13 @@
     
     .section-title {
         font-size: 24px;
-        color: #231F54;
+        color: #027a93f5;
         font-weight: 600;
         margin-bottom: 20px;
+    }
+
+    .g-4, .gy-4 {
+    --bs-gutter-y: -0.5rem;
     }
     
     @media (min-width: 768px) {
@@ -2009,7 +2288,7 @@
     
     .swiper-pagination-bullet-active {
         opacity: 1;
-        background: #231F54;
+        background: #027a93f5;
         transform: scale(1.2);
     }
 </style>
@@ -2278,7 +2557,7 @@
             <div class="login-content">
                 <!-- Logo Column -->
                 <div class="logo-column">
-                    <img class="logo-image" src="https://www.safollo.ac/logo/logo.png" alt="সাফল্য একাডেমি">
+                    <img class="logo-image" src="https://www.bttdc.org/upload/amti.jpg" alt="সাফল্য একাডেমি">
                 </div>
                 
                 <!-- Login Form Column -->
@@ -2427,7 +2706,7 @@
             <div class="company-info">
                 <!-- Logo -->
                 <div class="footer-logo">
-                    <img src="https://www.safollo.ac/logo/footerLogo.png" alt="সাফল্য একাডেমি">
+                    <img src="https://www.bttdc.org/upload/setting/logo/1737827788bttdc-logo.png" alt="সাফল্য একাডেমি">
                 </div>
                 
                 <!-- Contact Info -->
@@ -2500,10 +2779,10 @@
             
             <!-- App Download Column -->
             <div class="app-download">
-                <div class="app-info">
-                    <h3 class="app-heading">দেশসেরা চাকরি প্রস্তুতির অনলাইন প্ল্যাটফর্ম।</h3>
-                    <h4 class="app-subheading">অ্যাপ ডাউনলোড করুন</h4>
+                <div class="footer-logo">
+                    <img src="https://www.bttdc.org/upload/amti.jpg" alt="সাফল্য একাডেমি">
                 </div>
+                
                 <div class="app-button">
                     <a href="https://play.google.com/store/apps/details?id=com.nextive_safollo.ac" target="_blank">
                         <img src="https://www.safollo.ac/app/google.png" alt="Google Play">
@@ -2590,7 +2869,6 @@
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 1rem;
     }
     
     .footer-content {
